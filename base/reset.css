@@ -10,55 +10,68 @@
    · Não define font-family aqui: quem define é o tema.
    ============================================================ */
 
-*, *::before, *::after { box-sizing: border-box; }
+/* Envolvido em @layer base de propósito.
 
-* { margin: 0; }
+   Sem camada, estas regras venceriam QUALQUER utilitário de framework:
+   em CSS, estilo fora de camada vence estilo dentro de camada, sempre.
+   O sintoma real: `button { background: none }` daqui atropelava
+   `.bg-action` do Tailwind e todo botão saía transparente.
 
-html {
-  -webkit-text-size-adjust: 100%;
-  tab-size: 4;
+   Dentro de base, o reset continua vencendo o padrão do navegador e
+   perde para utilitário e para CSS de componente — que é a ordem certa.
+   Encontrado ao plugar o sistema no lucasmitchel.dev. */
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  * { margin: 0; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  body {
+    min-height: 100svh;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--leading-normal);
+    color: var(--text-primary);
+    background-color: var(--surface-1);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: var(--leading-tight);
+    text-wrap: balance;
+  }
+
+  p, li, figcaption {
+    text-wrap: pretty;
+    max-width: var(--measure);
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button { background: none; border: none; cursor: pointer; }
+
+  ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+
+  a { color: inherit; text-decoration-thickness: max(0.08em, 1px); text-underline-offset: 0.15em; }
+
+  table { border-collapse: collapse; border-spacing: 0; }
+
+  hr { border: none; border-top: var(--stroke-thin) solid var(--divider); }
+
+  :target { scroll-margin-block-start: var(--space-16); }
 }
-
-body {
-  min-height: 100svh;
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  line-height: var(--leading-normal);
-  color: var(--text-primary);
-  background-color: var(--surface-1);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: var(--leading-tight);
-  text-wrap: balance;
-}
-
-p, li, figcaption {
-  text-wrap: pretty;
-  max-width: var(--measure);
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-input, button, textarea, select {
-  font: inherit;
-  color: inherit;
-}
-
-button { background: none; border: none; cursor: pointer; }
-
-ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
-
-a { color: inherit; text-decoration-thickness: max(0.08em, 1px); text-underline-offset: 0.15em; }
-
-table { border-collapse: collapse; border-spacing: 0; }
-
-hr { border: none; border-top: var(--stroke-thin) solid var(--divider); }
-
-:target { scroll-margin-block-start: var(--space-16); }

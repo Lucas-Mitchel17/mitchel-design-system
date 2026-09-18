@@ -48,7 +48,7 @@ Com Tailwind 4:
 | `tokens/primitives.css` | escalas sem marca: tipo, espaço, raio, movimento, camadas |
 | `tokens/semantic.css` | **o contrato** — papéis, zero valores literais, claro e escuro |
 | `tokens/themes/` | as rampas de cada marca |
-| `base/reset.css` | reset moderno |
+| `base/reset.css` | reset moderno, dentro de `@layer base` |
 | `base/a11y.css` | foco visível, movimento reduzido, skip-link, alvo de toque |
 | `tailwind/preset.css` | expõe os tokens ao Tailwind 4 |
 | `assets/logo/` | as duas marcas em SVG, com `currentColor` |
@@ -66,6 +66,16 @@ python3 docs/build.py && xdg-open docs/index.html
 A página calcula o **contraste de cada par ao vivo**, nos dois temas e nos dois modos.
 Foi ela que pegou o primeiro bug do sistema: `--text-disabled` sobre `--surface-disabled`
 saiu em 2.45:1 — a mesma classe de erro que existia no site antigo.
+
+## Camadas
+
+`reset.css` e `a11y.css` vivem dentro de `@layer base`. Isso não é detalhe de
+organização: em CSS, **estilo fora de camada vence estilo dentro de camada**.
+Um reset sem camada atropela todo utilitário de framework — `button
+{ background: none }` deixando `.bg-action` sem efeito, por exemplo.
+
+Dentro de `base`, o reset ganha do padrão do navegador e perde para utilitário
+e CSS de componente, que é a ordem que se espera.
 
 ## Um tema novo
 
