@@ -1,0 +1,70 @@
+/* ============================================================
+   ACESSIBILIDADE — regras do sistema, não de componente.
+
+   Isto não é opcional nem "detalhe de polimento": é a parte do
+   design system que o componente não tem como resolver sozinho.
+   ============================================================ */
+
+/* ---- Foco visível ----
+   O site antigo não tinha nenhum :focus-visible, e o único
+   focus: existente era um focus:outline-none no hamburguer, que
+   piorava a situação. Quem navega por teclado ficava cego.     */
+:focus-visible {
+  outline: var(--stroke-medium) solid var(--focus-ring);
+  outline-offset: var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+/* Remove o anel só de quem já recebeu um por outro caminho */
+:focus:not(:focus-visible) { outline: none; }
+
+/* ---- Movimento reduzido ----
+   O site anima fade, blur e slide em quase tudo. Para quem tem
+   sensibilidade vestibular isso passa de estilo a problema.    */
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Pular para o conteúdo ---- */
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--space-4);
+  inset-block-start: var(--space-4);
+  z-index: var(--z-toast);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--action-primary);
+  color: var(--text-on-action-primary);
+  font-weight: var(--weight-bold);
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+/* ---- Só para leitor de tela ---- */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Alvo de toque ----
+   24px é o mínimo do WCAG 2.2 (2.5.8). 44px é o confortável.   */
+@media (pointer: coarse) {
+  a, button, [role="button"], input, select, textarea {
+    min-block-size: 44px;
+  }
+}

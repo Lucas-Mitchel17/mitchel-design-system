@@ -1,0 +1,43 @@
+/* ============================================================
+   TEMA — Mitchel Sistemas (a empresa)
+   Só modo escuro. Nunca recebe data-mode="light".
+
+   Transcrição fiel da identidade que já existia no site:
+   #080c1c, #050813, #43ea80 e #38f8d4 continuam sendo os
+   mesmos valores — mudou só o lugar onde eles moram.
+   ============================================================ */
+
+[data-theme="mitchel-sistemas"] {
+  /* Neutros frios, base azul-petróleo */
+  --ramp-neutral-0:   #ffffff;
+  --ramp-neutral-50:  #f2f4f8;
+  --ramp-neutral-100: #e3e7ef;
+  --ramp-neutral-200: #c4cbdb;
+  --ramp-neutral-300: #9aa4bd;
+  --ramp-neutral-400: #6f7c9b;
+  --ramp-neutral-500: #4a5878;
+  --ramp-neutral-600: #2b3757;
+  --ramp-neutral-700: #1b2543;
+  --ramp-neutral-800: #111931;
+  --ramp-neutral-900: #080c1c;  /* era --dark-blue   */
+  --ramp-neutral-950: #050813;  /* era --fade-black  */
+
+  /* Marca — verde de sinal */
+  --ramp-brand-300: #93f5b7;
+  --ramp-brand-400: #6bf09b;
+  --ramp-brand-500: #43ea80;    /* era --main-green  */
+  --ramp-brand-600: #22c865;
+  --ramp-brand-700: #15a151;
+  --ramp-brand-800: #0d7a3d;
+
+  /* Acento — ciano do gradiente */
+  --ramp-accent-500: #38f8d4;   /* era --light-green */
+
+  /* Tipografia */
+  --font-display: "Orbitron", system-ui, sans-serif;
+  --font-body:    "Play", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* Densidade institucional: respiro maior */
+  --stack-gap: var(--space-6);
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Lucas Mitchel Dev">
+  <title>Lucas Mitchel Dev</title>
+  <!-- Monograma LM. Construção idêntica à marca da Mitchel Sistemas:
+       grade de 48, traço 3, junta e ponta arredondadas. É a construção
+       que cria o parentesco entre as duas marcas, não a forma.
+       O pé do L quase encostando na haste do M é o encaixe — detalhe,
+       não conceito: um ícone de 32px não comporta explicação. -->
+  <g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M10 14v24h7"/>
+    <path d="M22 38V14l8 10 8-10v24"/>
+  </g>
+</svg>

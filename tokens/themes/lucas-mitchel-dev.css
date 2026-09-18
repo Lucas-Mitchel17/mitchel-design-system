@@ -1,0 +1,64 @@
+/* ============================================================
+   TEMA — Lucas Mitchel Dev (a pessoa)
+   Escuro por padrão, com modo claro disponível.
+
+   A leitura de marca por trás das escolhas:
+
+   "alegre e espontâneo, mas sério e trabalhador" é uma tensão,
+   e é ela que vira o design — estrutura séria, voz quente.
+   A estrutura (grade, escala, componentes) é idêntica à da
+   empresa. O que muda é a TEMPERATURA.
+
+   · Neutros quentes (espresso → osso) no lugar do azul-petróleo.
+     Cinza frio é corporativo; marrom quente é oficina.
+   · Marca âmbar/brasa: madeira, ferramenta, calor. O oposto
+     térmico do verde-sinal da empresa — irmãs, não gêmeas.
+   · Tinta osso (#F7F3EC) no lugar de branco puro: menos dureza.
+   · O verde da empresa reaparece aqui como ACENTO secundário.
+     A primária de uma vira a secundária da outra — parentesco
+     literal, sem repetição.
+
+   Por que âmbar e não outro quente: você começou em 2013 como
+   ajudante de marcenaria e virou engenheiro sem diploma, por
+   prática. "Craft" na sua marca não é metáfora emprestada, é
+   biografia. Âmbar sobre madeira escura é essa história.
+   ============================================================ */
+
+[data-theme="lucas-mitchel-dev"] {
+  /* Neutros quentes */
+  --ramp-neutral-0:   #fffdf9;
+  --ramp-neutral-50:  #f7f3ec;
+  --ramp-neutral-100: #ebe5db;
+  --ramp-neutral-200: #d7cec2;
+  --ramp-neutral-300: #b8ac9c;
+  --ramp-neutral-400: #938675;
+  --ramp-neutral-500: #6b5e50;
+  --ramp-neutral-600: #4a4036;
+  --ramp-neutral-700: #332b23;
+  --ramp-neutral-800: #221d18;
+  --ramp-neutral-900: #16130f;
+  --ramp-neutral-950: #0e0c0a;
+
+  /* Marca — brasa */
+  --ramp-brand-300: #ffd9a8;
+  --ramp-brand-400: #ffc078;
+  --ramp-brand-500: #f2a03f;
+  --ramp-brand-600: #db8524;
+  --ramp-brand-700: #a9631a;
+  --ramp-brand-800: #7c4813;
+
+  /* Acento — o verde da Mitchel Sistemas, o laço de família */
+  --ramp-accent-500: #43ea80;
+
+  /* Tipografia
+     Fraunces: serifa contemporânea, quente e com personalidade.
+     Distância deliberada da Orbitron — a empresa é sistema, a
+     pessoa é autor. Inter carrega o texto sem competir.        */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* Densidade pessoal: um pouco mais apertada que a da empresa,
+     porque é portfólio, não institucional */
+  --stack-gap: var(--space-5);
+}

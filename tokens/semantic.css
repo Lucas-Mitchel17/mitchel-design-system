@@ -1,0 +1,132 @@
+/* ============================================================
+   SEMÂNTICO — o contrato do sistema.
+
+   É esta camada que viaja entre projetos. Nenhum valor literal
+   mora aqui: tudo aponta para uma rampa que o TEMA fornece.
+
+   Um tema novo (cliente, marca nova) precisa entregar só isto:
+     --ramp-neutral-0 … --ramp-neutral-950
+     --ramp-brand-300 … --ramp-brand-800
+     --ramp-accent-500
+     --font-display / --font-body / --font-mono
+   O resto é distribuído aqui, igual para todo mundo.
+
+   Superfícies numeradas ordenam PROFUNDIDADE, não luminosidade:
+   surface-1 é a base, surface-2 recua, surface-3 eleva. No escuro
+   recuar é escurecer; no claro, elevar é clarear.
+   ============================================================ */
+
+/* ---------- MODO ESCURO (padrão) ---------- */
+:root,
+[data-theme],
+[data-mode="dark"] {
+  color-scheme: dark;
+
+  /* Superfícies */
+  --surface-1:        var(--ramp-neutral-900);
+  --surface-2:        var(--ramp-neutral-950);
+  --surface-3:        var(--ramp-neutral-800);
+  --surface-disabled: var(--ramp-neutral-800);
+
+  /* Texto */
+  --text-primary:            var(--ramp-neutral-50);
+  --text-secondary:          var(--ramp-neutral-300);
+  --text-muted:              var(--ramp-neutral-400);
+  --text-disabled:           var(--ramp-neutral-500);
+  --text-highlight:          var(--ramp-brand-500);
+  --text-on-action-primary:  var(--ramp-neutral-950);
+
+  /* Ação */
+  --action-primary:          var(--ramp-brand-500);
+  --action-primary-hover:    var(--ramp-brand-400);
+  --action-primary-active:   var(--ramp-brand-600);
+  --action-secondary:        transparent;
+  --action-secondary-text:   var(--ramp-brand-500);
+  --action-secondary-border: var(--ramp-brand-500);
+
+  /* Contorno */
+  --border-subtle:   var(--ramp-neutral-800);
+  --border-default:  var(--ramp-neutral-700);
+  --border-strong:   var(--ramp-brand-500);
+  --border-disabled: var(--ramp-neutral-700);
+
+  /* Ícone e separador */
+  --icon-default: var(--ramp-brand-500);
+  --icon-muted:   var(--ramp-neutral-400);
+  --divider:      var(--ramp-neutral-800);
+
+  /* Camadas e feedback */
+  --scrim:       color-mix(in srgb, var(--ramp-neutral-950) 68%, transparent);
+  --focus-ring:  var(--ramp-brand-400);
+  --glow-action: color-mix(in srgb, var(--ramp-brand-500) 74%, transparent);
+
+  --elevation-1: 0 1px 2px rgb(0 0 0 / 0.40);
+  --elevation-2: 0 4px 12px rgb(0 0 0 / 0.45);
+  --elevation-3: 0 12px 32px rgb(0 0 0 / 0.50);
+}
+
+/* ---------- MODO CLARO ----------
+   Mesma especificidade da regra acima (0,1,0) e declarada
+   depois, então vence sempre que data-mode="light" estiver
+   presente — no <html> ou em qualquer container.
+   O tema da Mitchel Sistemas simplesmente nunca recebe
+   data-mode="light". O do Lucas Mitchel Dev recebe.        */
+[data-mode="light"] {
+  color-scheme: light;
+
+  --surface-1:        var(--ramp-neutral-50);
+  --surface-2:        var(--ramp-neutral-100);
+  --surface-3:        var(--ramp-neutral-0);
+  --surface-disabled: var(--ramp-neutral-100);
+
+  --text-primary:            var(--ramp-neutral-900);
+  --text-secondary:          var(--ramp-neutral-600);
+  --text-muted:              var(--ramp-neutral-500);
+  --text-disabled:           var(--ramp-neutral-400);
+  --text-highlight:          var(--ramp-brand-800);
+  --text-on-action-primary:  var(--ramp-neutral-950);
+
+  --action-primary:          var(--ramp-brand-500);
+  --action-primary-hover:    var(--ramp-brand-600);
+  --action-primary-active:   var(--ramp-brand-700);
+  --action-secondary:        transparent;
+  --action-secondary-text:   var(--ramp-brand-800);
+  --action-secondary-border: var(--ramp-brand-600);
+
+  --border-subtle:   var(--ramp-neutral-200);
+  --border-default:  var(--ramp-neutral-300);
+  --border-strong:   var(--ramp-brand-600);
+  --border-disabled: var(--ramp-neutral-200);
+
+  --icon-default: var(--ramp-brand-600);
+  --icon-muted:   var(--ramp-neutral-500);
+  --divider:      var(--ramp-neutral-200);
+
+  --scrim:       color-mix(in srgb, var(--ramp-neutral-950) 55%, transparent);
+  --focus-ring:  var(--ramp-brand-600);
+  --glow-action: color-mix(in srgb, var(--ramp-brand-500) 55%, transparent);
+
+  --elevation-1: 0 1px 2px rgb(0 0 0 / 0.08);
+  --elevation-2: 0 4px 12px rgb(0 0 0 / 0.10);
+  --elevation-3: 0 12px 32px rgb(0 0 0 / 0.14);
+}
+
+/* ---------- PAPÉIS INDEPENDENTES DE MODO ---------- */
+:root {
+  /* Tipografia por papel */
+  --text-h1:      var(--text-6);
+  --text-h2:      var(--text-5);
+  --text-h3:      var(--text-4);
+  --text-h4:      var(--text-3);
+  --text-lead:    var(--text-2);
+  --text-body:    var(--text-1);
+  --text-small:   var(--text-0);
+  --text-caption: var(--text-00);
+
+  /* Ritmo de layout — é aqui que mora a densidade da marca.
+     Trocar estes três muda o site inteiro.                  */
+  --container-max:         72rem;
+  --container-gutter:      clamp(var(--space-5), 4vw, var(--space-10));
+  --section-padding-block: clamp(var(--space-16), 10vw, var(--space-24));
+  --stack-gap:             var(--space-6);
+}

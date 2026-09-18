@@ -1,0 +1,79 @@
+/* ============================================================
+   PRESET TAILWIND 4
+
+   O Tailwind 4 é CSS-first: o tema é declarado em CSS, não em
+   tailwind.config.js. `@theme inline` aponta os valores do tema
+   para as custom properties que já existem, em vez de copiá-las
+   — é isso que mantém UMA fonte da verdade e faz a troca de
+   tema em runtime continuar funcionando.
+
+   Uso no projeto:
+     @import "tailwindcss";
+     @import "mitchel-design-system/index.css";
+     @import "mitchel-design-system/tailwind/preset.css";
+
+   Gera utilitários como bg-surface-1, text-highlight,
+   rounded-lg, p-6, font-display.
+
+   ⚠️ Verificar contra a versão do Tailwind instalada na hora da
+   integração — `@theme inline` é a forma documentada para valores
+   que referenciam outras custom properties.
+   ============================================================ */
+
+@theme inline {
+  /* Cor — papéis, não matizes */
+  --color-surface-1:        var(--surface-1);
+  --color-surface-2:        var(--surface-2);
+  --color-surface-3:        var(--surface-3);
+  --color-surface-disabled: var(--surface-disabled);
+
+  --color-text-primary:   var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted:     var(--text-muted);
+  --color-text-disabled:  var(--text-disabled);
+  --color-text-highlight: var(--text-highlight);
+  --color-on-action:      var(--text-on-action-primary);
+
+  --color-action:        var(--action-primary);
+  --color-action-hover:  var(--action-primary-hover);
+  --color-action-active: var(--action-primary-active);
+
+  --color-border-subtle:   var(--border-subtle);
+  --color-border-default:  var(--border-default);
+  --color-border-strong:   var(--border-strong);
+  --color-border-disabled: var(--border-disabled);
+
+  --color-icon:    var(--icon-default);
+  --color-divider: var(--divider);
+  --color-scrim:   var(--scrim);
+
+  /* Tipografia */
+  --font-display: var(--font-display);
+  --font-body:    var(--font-body);
+  --font-mono:    var(--font-mono);
+
+  --text-caption: var(--text-caption);
+  --text-small:   var(--text-small);
+  --text-body:    var(--text-body);
+  --text-lead:    var(--text-lead);
+  --text-h4:      var(--text-h4);
+  --text-h3:      var(--text-h3);
+  --text-h2:      var(--text-h2);
+  --text-h1:      var(--text-h1);
+
+  /* Espaçamento, raio, sombra, movimento */
+  --spacing: 0.25rem;
+
+  --radius-sm:   var(--radius-sm);
+  --radius-md:   var(--radius-md);
+  --radius-lg:   var(--radius-lg);
+  --radius-xl:   var(--radius-xl);
+  --radius-full: var(--radius-full);
+
+  --shadow-1: var(--elevation-1);
+  --shadow-2: var(--elevation-2);
+  --shadow-3: var(--elevation-3);
+
+  --ease-out:    var(--ease-out);
+  --ease-in-out: var(--ease-in-out);
+}

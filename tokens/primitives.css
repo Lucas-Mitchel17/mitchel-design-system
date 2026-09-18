@@ -1,0 +1,82 @@
+/* ============================================================
+   PRIMITIVOS — escalas cruas, sem marca e sem papel.
+   Nada aqui sabe onde vai ser usado. Nenhum componente importa
+   este arquivo diretamente: quem consome é semantic.css.
+   Cor NÃO mora aqui — mora nos temas, porque muda por marca.
+   ============================================================ */
+
+:root {
+  /* --- Tipografia: escala modular 1.25, base 16px ---------------
+     Fluida entre 360px e 1280px de viewport. Os degraus são
+     16 · 20 · 25 · 31 · 39 · 49 · 61 no topo da escala.         */
+  --text-00: 0.8rem;                                      /* 12.8px fixo */
+  --text-0:  1rem;                                        /* 16px fixo   */
+  --text-1:  clamp(1rem,     0.902rem + 0.435vw, 1.25rem);
+  --text-2:  clamp(1.25rem,  1.128rem + 0.543vw, 1.563rem);
+  --text-3:  clamp(1.25rem,  0.975rem + 1.223vw, 1.953rem);
+  --text-4:  clamp(1.563rem, 1.219rem + 1.528vw, 2.441rem);
+  --text-5:  clamp(1.953rem, 1.523rem + 1.911vw, 3.052rem);
+  --text-6:  clamp(2.441rem, 1.904rem + 2.389vw, 3.815rem);
+
+  /* --- Entrelinha --- */
+  --leading-tight:   1.1;   /* títulos grandes */
+  --leading-snug:    1.25;  /* títulos menores */
+  --leading-normal:  1.6;   /* texto corrido   */
+  --leading-relaxed: 1.75;
+
+  /* --- Tracking ---
+     Positivo só em caixa alta. Em texto corrido ele quebra o
+     agrupamento das palavras e piora a leitura.                */
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-caps:   0.08em;
+
+  /* --- Medida de leitura --- */
+  --measure: 65ch;
+
+  /* --- Pesos --- */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  /* --- Espaçamento: base 4px --- */
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Raio --- */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-full: 9999px;
+
+  /* --- Traço --- */
+  --stroke-thin:   1px;
+  --stroke-medium: 2px;
+
+  /* --- Movimento --- */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --ease-out:    cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Camadas --- */
+  --z-base:    0;
+  --z-sticky:  100;
+  --z-overlay: 200;
+  --z-modal:   300;
+  --z-toast:   400;
+}
