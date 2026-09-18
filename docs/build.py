@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-         'family=Fraunces:opsz,wght@9..144,400;9..144,600&'
+         'family=Chakra+Petch:wght@400;500;600;700&'
          'family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&'
          'family=Orbitron:wght@500;700&family=Play:wght@400;700&display=swap">')
 
@@ -106,6 +106,7 @@ PAIRS = [
  ("--text-primary","--surface-2","texto sobre seção recuada",4.5),
  ("--text-primary","--surface-3","texto sobre card elevado",4.5),
  ("--text-on-action-primary","--action-primary","texto no botão primário",4.5),
+ ("--action-secondary-text","--surface-1","texto do botão secundário",4.5),
  ("--text-disabled","--surface-disabled","desabilitado · isento na WCAG",3.0),
 ]
 ROLES = ["--surface-1","--surface-2","--surface-3","--text-primary","--text-secondary","--text-muted",

@@ -1,10 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 224" role="img" aria-label="Lucas Mitchel Dev">
   <title>Lucas Mitchel Dev</title>
-<!-- Vetorizado a partir do estudo que o Lucas gerou online.
-     Geometria regularizada: os chevrons foram forçados à simetria exata
-     (o original tinha ~4px de desvio entre esquerdo e direito) e as
-     arestas foram alinhadas. Nada de cor embutida: herda currentColor. -->
-  <g fill="currentColor">
+<!-- Versão de gradiente, para uso grande (hero, capa, OG image).
+     As paradas leem os tokens do tema quando o SVG é inline no HTML;
+     os hex são o fallback para quando ele é carregado como <img>. -->
+  <defs>
+    <linearGradient id="lm-grad" x1="236" y1="7" x2="60" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="var(--ramp-accent-500, #7de3ff)"/>
+      <stop offset="1" stop-color="var(--ramp-brand-500, #3f6bff)"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#lm-grad)">
     <path d="M62 82 L62 101 L31 120 L62 139 L62 158 L8 127 L8 113 Z"/>
     <path d="M226 82 L226 101 L257 120 L226 139 L226 158 L280 127 L280 113 Z"/>
     <path d="M78 35 H97 V134 H166 L157 152 H78 Z"/>

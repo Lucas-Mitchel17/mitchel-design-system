@@ -1,64 +1,57 @@
 /* ============================================================
    TEMA — Lucas Mitchel Dev (a pessoa)
-   Escuro por padrão, com modo claro disponível.
+   Direção A · "Sinal". Escuro por padrão, com modo claro.
 
-   A leitura de marca por trás das escolhas:
+   Escolhida em 18/09/2026, depois de uma primeira direção
+   (âmbar quente, serifa, história de marcenaria) ter sido vetada
+   pelo Lucas. O erro daquela tentativa está anotado porque é a
+   lição que sobrou: ele já tinha declarado um gosto — verde neon
+   sobre quase-preto, no site da empresa — e a direção puxava para
+   o lado oposto do gosto declarado.
 
-   "alegre e espontâneo, mas sério e trabalhador" é uma tensão,
-   e é ela que vira o design — estrutura séria, voz quente.
-   A estrutura (grade, escala, componentes) é idêntica à da
-   empresa. O que muda é a TEMPERATURA.
+   Esta fica no mesmo mundo da empresa e se diferencia pela cor:
 
-   · Neutros quentes (espresso → osso) no lugar do azul-petróleo.
-     Cinza frio é corporativo; marrom quente é oficina.
-   · Marca âmbar/brasa: madeira, ferramenta, calor. O oposto
-     térmico do verde-sinal da empresa — irmãs, não gêmeas.
-   · Tinta osso (#F7F3EC) no lugar de branco puro: menos dureza.
-   · O verde da empresa reaparece aqui como ACENTO secundário.
-     A primária de uma vira a secundária da outra — parentesco
-     literal, sem repetição.
-
-   Por que âmbar e não outro quente: você começou em 2013 como
-   ajudante de marcenaria e virou engenheiro sem diploma, por
-   prática. "Craft" na sua marca não é metáfora emprestada, é
-   biografia. Âmbar sobre madeira escura é essa história.
+   · Neutros frios de base quase-preta, mais escuros que os da
+     empresa (#05070E contra #080C1C).
+   · Marca azul elétrico. Mesma energia do verde-sinal, matiz
+     diferente — irmãs, não gêmeas.
+   · Acento gelo, para o segundo plano dos gradientes e para os
+     pontos de estado.
+   · Chakra Petch no display: quadrada e técnica como a Orbitron,
+     mas com cinco pesos em vez de dois, então a hierarquia existe.
    ============================================================ */
 
 [data-theme="lucas-mitchel-dev"] {
-  /* Neutros quentes */
-  --ramp-neutral-0:   #fffdf9;
-  --ramp-neutral-50:  #f7f3ec;
-  --ramp-neutral-100: #ebe5db;
-  --ramp-neutral-200: #d7cec2;
-  --ramp-neutral-300: #b8ac9c;
-  --ramp-neutral-400: #938675;
-  --ramp-neutral-500: #6b5e50;
-  --ramp-neutral-600: #4a4036;
-  --ramp-neutral-700: #332b23;
-  --ramp-neutral-800: #221d18;
-  --ramp-neutral-900: #16130f;
-  --ramp-neutral-950: #0e0c0a;
+  /* Neutros frios */
+  --ramp-neutral-0:   #ffffff;
+  --ramp-neutral-50:  #eef2ff;
+  --ramp-neutral-100: #e2e7f8;
+  --ramp-neutral-200: #cdd5ee;
+  --ramp-neutral-300: #a8b4d8;
+  --ramp-neutral-400: #6d7a9e;
+  --ramp-neutral-500: #46578c;
+  --ramp-neutral-600: #2b3760;
+  --ramp-neutral-700: #1b2440;
+  --ramp-neutral-800: #101729;
+  --ramp-neutral-900: #0a0e1a;
+  --ramp-neutral-950: #05070e;
 
-  /* Marca — brasa */
-  --ramp-brand-300: #ffd9a8;
-  --ramp-brand-400: #ffc078;
-  --ramp-brand-500: #f2a03f;
-  --ramp-brand-600: #db8524;
-  --ramp-brand-700: #a9631a;
-  --ramp-brand-800: #7c4813;
+  /* Marca — azul elétrico */
+  --ramp-brand-300: #9db4ff;
+  --ramp-brand-400: #6b8dff;
+  --ramp-brand-500: #3f6bff;
+  --ramp-brand-600: #2a51db;
+  --ramp-brand-700: #1d3ca8;
+  --ramp-brand-800: #142a76;
 
-  /* Acento — o verde da Mitchel Sistemas, o laço de família */
-  --ramp-accent-500: #43ea80;
+  /* Acento — gelo */
+  --ramp-accent-500: #7de3ff;
 
-  /* Tipografia
-     Fraunces: serifa contemporânea, quente e com personalidade.
-     Distância deliberada da Orbitron — a empresa é sistema, a
-     pessoa é autor. Inter carrega o texto sem competir.        */
-  --font-display: "Fraunces", Georgia, serif;
+  /* Tipografia */
+  --font-display: "Chakra Petch", system-ui, sans-serif;
   --font-body:    "IBM Plex Sans", system-ui, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
 
-  /* Densidade pessoal: um pouco mais apertada que a da empresa,
-     porque é portfólio, não institucional */
+  /* Densidade pessoal: portfólio respira menos que institucional */
   --stack-gap: var(--space-5);
 }

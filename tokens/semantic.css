@@ -33,7 +33,10 @@
   --text-secondary:          var(--ramp-neutral-300);
   --text-muted:              var(--ramp-neutral-400);
   --text-disabled:           var(--ramp-neutral-400);
-  --text-highlight:          var(--ramp-brand-500);
+  /* brand-400, não -500: o mesmo degrau que serve de PREENCHIMENTO
+     de botão não serve de TEXTO sobre fundo escuro. Com -500 o azul
+     elétrico do tema pessoal dava 4.36:1 — reprovado por pouco. */
+  --text-highlight:          var(--ramp-brand-400);
   --text-on-action-primary:  var(--ramp-neutral-950);
 
   /* Ação */
@@ -41,7 +44,7 @@
   --action-primary-hover:    var(--ramp-brand-400);
   --action-primary-active:   var(--ramp-brand-600);
   --action-secondary:        transparent;
-  --action-secondary-text:   var(--ramp-brand-500);
+  --action-secondary-text:   var(--ramp-brand-400);
   --action-secondary-border: var(--ramp-brand-500);
 
   /* Contorno */
