@@ -55,8 +55,8 @@
      Distância deliberada da Orbitron — a empresa é sistema, a
      pessoa é autor. Inter carrega o texto sem competir.        */
   --font-display: "Fraunces", Georgia, serif;
-  --font-body:    "Inter", system-ui, sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+  --font-body:    "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
 
   /* Densidade pessoal: um pouco mais apertada que a da empresa,
      porque é portfólio, não institucional */

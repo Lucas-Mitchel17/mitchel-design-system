@@ -32,7 +32,7 @@
   --text-primary:            var(--ramp-neutral-50);
   --text-secondary:          var(--ramp-neutral-300);
   --text-muted:              var(--ramp-neutral-400);
-  --text-disabled:           var(--ramp-neutral-500);
+  --text-disabled:           var(--ramp-neutral-400);
   --text-highlight:          var(--ramp-brand-500);
   --text-on-action-primary:  var(--ramp-neutral-950);
 
@@ -56,6 +56,9 @@
   --divider:      var(--ramp-neutral-800);
 
   /* Camadas e feedback */
+  /* neutral-400, não -500: com -500 o par desabilitado caía para 2.45:1 e
+     repetia o bug de cinza-sobre-cinza do site antigo. A página de docs
+     calcula esse par ao vivo — foi ela que pegou. */
   --scrim:       color-mix(in srgb, var(--ramp-neutral-950) 68%, transparent);
   --focus-ring:  var(--ramp-brand-400);
   --glow-action: color-mix(in srgb, var(--ramp-brand-500) 74%, transparent);
