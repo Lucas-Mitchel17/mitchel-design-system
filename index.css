@@ -1,8 +1,13 @@
 /* Mitchel Design System — ponto de entrada único.
-   A ordem importa: primitivos → temas → semântico → base. */
-@import url("./tokens/primitives.css");
-@import url("./tokens/themes/mitchel-sistemas.css");
-@import url("./tokens/themes/lucas-mitchel-dev.css");
-@import url("./tokens/semantic.css");
-@import url("./base/reset.css");
-@import url("./base/a11y.css");
+   A ordem importa: primitivos → temas → semântico → base.
+
+   Import em forma de STRING, não url(). Bundler embute a forma com string;
+   a forma com url() ele costuma deixar como import de runtime, e aí os
+   tokens simplesmente não entram no CSS final. Descoberto ao plugar o
+   sistema no primeiro projeto de verdade. */
+@import "./tokens/primitives.css";
+@import "./tokens/themes/mitchel-sistemas.css";
+@import "./tokens/themes/lucas-mitchel-dev.css";
+@import "./tokens/semantic.css";
+@import "./base/reset.css";
+@import "./base/a11y.css";
