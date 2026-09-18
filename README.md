@@ -19,10 +19,16 @@ COMPONENTE   --button-bg: var(--action-primary)        "quem usa"       ← por 
 Teste de nomenclatura: se você precisa saber em que tela o token é usado para entender
 o nome, o nome está na camada errada.
 
+## Instalando
+
+```
+npm i github:Lucas-Mitchel17/mitchel-design-system
+```
+
 ## Usando
 
 ```css
-@import "mitchel-design-system/index.css";                         /* comum */
+@import "mitchel-design-system/index.css";                           /* comum */
 @import "mitchel-design-system/tokens/themes/lucas-mitchel-dev.css"; /* seu tema */
 ```
 

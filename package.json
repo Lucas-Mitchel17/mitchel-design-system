@@ -1,0 +1,31 @@
+{
+  "name": "mitchel-design-system",
+  "version": "0.1.0",
+  "description": "Design system da Mitchel Sistemas e do Lucas Mitchel Dev. Tokens em CSS custom properties, multi-marca e multi-tema.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucas-Mitchel17/mitchel-design-system.git"
+  },
+  "author": "Lucas Mitchel",
+  "type": "module",
+  "sideEffects": ["*.css"],
+  "exports": {
+    ".": "./index.css",
+    "./index.css": "./index.css",
+    "./tokens/primitives.css": "./tokens/primitives.css",
+    "./tokens/semantic.css": "./tokens/semantic.css",
+    "./tokens/themes/*": "./tokens/themes/*",
+    "./base/*": "./base/*",
+    "./tailwind/preset.css": "./tailwind/preset.css",
+    "./assets/logo/*": "./assets/logo/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.css",
+    "tokens",
+    "base",
+    "tailwind",
+    "assets"
+  ],
+  "keywords": ["design-system", "design-tokens", "css", "tailwind"]
+}
