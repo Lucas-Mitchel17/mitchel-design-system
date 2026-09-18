@@ -1,13 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 170" width="288" height="170" role="img" aria-label="Lucas Mitchel Dev">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 170" role="img" aria-label="Lucas Mitchel Dev">
   <title>Lucas Mitchel Dev</title>
-  <!-- Variante de assinatura: 24–40px, navbar e rodapé.
-       Peso óptico. As chaves são ~45% mais grossas que as do
-       desenho grande, senão somem nesse tamanho; e a cauda sai,
-       porque o rabo longo desequilibra a marca ao lado do nome.
-       Fonte tem peso óptico, logo também. -->
+  <!-- Variante de assinatura: 24–40px, navbar e rodapé. Peso óptico:
+       chaves ~45% mais grossas que as do desenho grande, senão somem
+       nesse tamanho, e sem a cauda, que desequilibra ao lado do nome.
+       Chaves centradas nas letras e recortadas pelo M (ver marca completa). -->
+  <defs>
+    <mask id="lmd-knock-lockup" maskUnits="userSpaceOnUse" x="0" y="0" width="288" height="170">
+      <rect x="0" y="0" width="288" height="170" fill="#fff"/>
+      <g fill="#000" stroke="#000" stroke-width="9" stroke-linejoin="round">
+        <path d="M215 7 L236 7 L169 113 L158 111 L134 73 L132 120 L114 120 L114 36 L133 37 L164 87 Z"/>
+        <path d="M239 22 L238 37 L196 152 L175 152 L198 89 Z"/>
+      </g>
+    </mask>
+  </defs>
   <g fill="currentColor">
-    <path d="M66 76 L66 100 L38 120 L66 140 L66 164 L4 128 L4 112 Z"/>
-    <path d="M222 76 L222 100 L250 120 L222 140 L222 164 L284 128 L284 112 Z"/>
+    <g mask="url(#lmd-knock-lockup)">
+      <path d="M66 44 L66 68 L38 88 L66 108 L66 132 L4 96 L4 80 Z"/>
+      <path d="M222 44 L222 68 L250 88 L222 108 L222 132 L284 96 L284 80 Z"/>
+    </g>
     <path d="M78 35 H97 V134 H166 L157 152 H78 Z"/>
     <path d="M215 7 L236 7 L169 113 L158 111 L134 73 L132 120 L114 120 L114 36 L133 37 L164 87 Z"/>
     <path d="M239 22 L238 37 L196 152 L175 152 L198 89 Z"/>

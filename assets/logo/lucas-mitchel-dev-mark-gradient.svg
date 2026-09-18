@@ -1,17 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 224" role="img" aria-label="Lucas Mitchel Dev">
   <title>Lucas Mitchel Dev</title>
-<!-- Versão de gradiente, para uso grande (hero, capa, OG image).
-     As paradas leem os tokens do tema quando o SVG é inline no HTML;
-     os hex são o fallback para quando ele é carregado como <img>. -->
+  <!-- Versão de gradiente para uso grande: hero, capa, imagem de OG. -->
   <defs>
     <linearGradient id="lm-grad" x1="236" y1="7" x2="60" y2="210" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="var(--ramp-accent-500, #7de3ff)"/>
       <stop offset="1" stop-color="var(--ramp-brand-500, #3f6bff)"/>
     </linearGradient>
   </defs>
+  <defs>
+    <mask id="lmd-knock-grad" maskUnits="userSpaceOnUse" x="0" y="0" width="288" height="224">
+      <rect x="0" y="0" width="288" height="224" fill="#fff"/>
+      <g fill="#000" stroke="#000" stroke-width="9" stroke-linejoin="round">
+        <path d="M215 7 L236 7 L169 113 L158 111 L134 73 L132 120 L114 120 L114 36 L133 37 L164 87 Z"/>
+        <path d="M239 22 L238 37 L172 216 L151 218 L198 89 Z"/>
+      </g>
+    </mask>
+  </defs>
   <g fill="url(#lm-grad)">
-    <path d="M62 82 L62 101 L31 120 L62 139 L62 158 L8 127 L8 113 Z"/>
-    <path d="M226 82 L226 101 L257 120 L226 139 L226 158 L280 127 L280 113 Z"/>
+    <g mask="url(#lmd-knock-grad)">
+      <path d="M62 50 L62 69 L31 88 L62 107 L62 126 L8 95 L8 81 Z"/>
+      <path d="M226 50 L226 69 L257 88 L226 107 L226 126 L280 95 L280 81 Z"/>
+    </g>
     <path d="M78 35 H97 V134 H166 L157 152 H78 Z"/>
     <path d="M215 7 L236 7 L169 113 L158 111 L134 73 L132 120 L114 120 L114 36 L133 37 L164 87 Z"/>
     <path d="M239 22 L238 37 L172 216 L151 218 L198 89 Z"/>

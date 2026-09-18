@@ -1,12 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 224" role="img" aria-label="Lucas Mitchel Dev">
   <title>Lucas Mitchel Dev</title>
-<!-- Vetorizado a partir do estudo que o Lucas gerou online.
-     Geometria regularizada: os chevrons foram forçados à simetria exata
-     (o original tinha ~4px de desvio entre esquerdo e direito) e as
-     arestas foram alinhadas. Nada de cor embutida: herda currentColor. -->
+  <!-- Duas correções pedidas pelo Lucas:
+       1. As chaves foram subidas 32 unidades. Estavam centradas em y=120,
+          herdado da imagem original; as letras L e M têm centro em ~80.
+          Agora as chaves flanqueiam as letras em vez de ficarem caídas.
+       2. A chave da direita cruzava a barra diagonal e as duas viravam um
+          bloco só. A barra e o M agora RECORTAM a chave por máscara, então
+          o M passa por cima. Máscara e não contorno colorido: assim funciona
+          em qualquer cor e sobre qualquer fundo, sem saber qual é o fundo. -->
+  <defs>
+    <mask id="lmd-knock" maskUnits="userSpaceOnUse" x="0" y="0" width="288" height="224">
+      <rect x="0" y="0" width="288" height="224" fill="#fff"/>
+      <g fill="#000" stroke="#000" stroke-width="9" stroke-linejoin="round">
+        <path d="M215 7 L236 7 L169 113 L158 111 L134 73 L132 120 L114 120 L114 36 L133 37 L164 87 Z"/>
+        <path d="M239 22 L238 37 L172 216 L151 218 L198 89 Z"/>
+      </g>
+    </mask>
+  </defs>
   <g fill="currentColor">
-    <path d="M62 82 L62 101 L31 120 L62 139 L62 158 L8 127 L8 113 Z"/>
-    <path d="M226 82 L226 101 L257 120 L226 139 L226 158 L280 127 L280 113 Z"/>
+    <g mask="url(#lmd-knock)">
+      <path d="M62 50 L62 69 L31 88 L62 107 L62 126 L8 95 L8 81 Z"/>
+      <path d="M226 50 L226 69 L257 88 L226 107 L226 126 L280 95 L280 81 Z"/>
+    </g>
     <path d="M78 35 H97 V134 H166 L157 152 H78 Z"/>
     <path d="M215 7 L236 7 L169 113 L158 111 L134 73 L132 120 L114 120 L114 36 L133 37 L164 87 Z"/>
     <path d="M239 22 L238 37 L172 216 L151 218 L198 89 Z"/>
