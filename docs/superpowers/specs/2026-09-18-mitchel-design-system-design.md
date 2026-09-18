@@ -30,6 +30,9 @@ mecanismo que as justifica.
 | D6 | Escala de superfícies | Numerada (`--surface-1..n`) | Escala melhor quando aparecer o quarto nível; é o que o PrimeVue usa |
 | D7 | Orbitron | Só display: logo, H1, números | Display geométrica de letra quadrada: forte em pouca quantidade, cansativa e pouco legível em H2/H3 longos |
 | D8 | Escala tipográfica | Modular, razão 1.25, base 16px | Os tamanhos que Lucas já escolheu no olho caem quase em cima dessa progressão |
+| D9 | Cores de feedback | Adiadas. Se vierem, sucesso usa o verde da marca | Nenhum dos dois sites terá salvamento ou notificação de erro por enquanto |
+| D10 | Modo claro | Só no lucasmitchel.dev. Mitchel Sistemas fica só escuro | Decisão de marca do Lucas — e obriga a camada semântica a ser neutra quanto a claro/escuro desde já |
+| D11 | Logo | Precisa virar SVG monocromático | A atual é PNG 412x69 com o verde rasterizado: não escala, não recolore por tema, e em fundo claro fica ilegível |
 
 ### Rejeitado
 
@@ -83,9 +86,11 @@ Os três tokens de `disabled` saem de uma escala neutra a ser criada junto com o
 não são decisão de marca, são consequência de ter uma escala de cinzas. O `--focus-ring` deriva
 do verde de marca, com contraste conferido contra `--surface-1` e `--surface-2`.
 
-**Pendência de marca:** o verde é ao mesmo tempo a cor da marca e a cor convencional de
-sucesso. Sucesso e ação primária vão colidir na mesma tela. Resolver ao definir os tokens de
-feedback — provavelmente deslocando o sucesso para outro matiz ou diferenciando por forma/ícone.
+**Feedback (D9):** nenhum dos dois sites terá salvamento ou notificação de erro por enquanto,
+então `--danger-*`, `--success-*` e `--warning-*` não entram agora. Quando entrarem, sucesso usa
+o verde da marca. Consequência a lembrar: sucesso e `--action-primary` ficarão com a mesma cor,
+então a distinção terá que vir de ícone e forma, não de matiz — e um "salvo com sucesso" nunca
+deve aparecer como algo clicável.
 
 **Regras:**
 
@@ -94,6 +99,22 @@ feedback — provavelmente deslocando o sucesso para outro matiz ou diferenciand
   misturam, senão "quais são minhas superfícies?" deixa de ter resposta coerente.
 - Um papel, um token — mesmo que dois tokens apontem hoje para o mesmo hex.
 - `inactive` (aba não selecionada) e `disabled` (não aceita interação) são estados distintos.
+
+### 3.1.1 Modo claro e a neutralidade da camada semântica (D10)
+
+O lucasmitchel.dev terá modo claro; o mitchelsistemas.com não. Um único tema precisando dos dois
+modos é o que impede a camada semântica de assumir "escuro" em qualquer lugar. Consequências:
+
+- **Superfícies numeradas ordenam profundidade, não luminosidade.** `--surface-1` é a base,
+  `--surface-2` é a seção recuada, `--surface-3` é o card elevado. Qual delas é mais clara é
+  decisão do **tema**: no escuro, recuar é escurecer; no claro, elevar é clarear e ganhar sombra.
+  Foi a escolha D6 (numerada em vez de `sunken`/`raised`) que deixou isso possível.
+- Nenhum valor literal vive em `semantic.css`. `--text-primary: #ffffff` é um fato do tema
+  escuro, não do sistema.
+- `--scrim`, `--elevation-*` e `--glow-action` também mudam de comportamento entre modos: sombra
+  preta translúcida funciona no claro e some no escuro, onde a separação vem de superfície.
+- Modo aplicado por atributo separado do tema — o tema diz *qual marca*, o modo diz *claro ou
+  escuro*. O tema da empresa simplesmente não declara o bloco claro.
 
 ### 3.2 Tipografia
 
@@ -143,6 +164,23 @@ densidade entre as duas marcas:
   tudo e não trata isso hoje.
 - Contraste mínimo garantido pelos pares fundo/conteúdo.
 - Nada de `transition-all` — declarar as propriedades animadas.
+
+### 3.6 Logo (D11)
+
+A logo atual é `Logo.png`, 412x69, com o verde rasterizado nos pixels. Três problemas, e o
+terceiro nasceu da decisão D10:
+
+1. **Raster pequeno** — 412px de largura fica visivelmente mole em tela 2x/3x.
+2. **Cor embutida** — não acompanha a troca de tema. Uma logo que não recolore não faz parte do
+   design system, é uma imagem colada por cima dele.
+3. **Ilegível em fundo claro** — `#43ea80` sobre branco dá cerca de 1.7:1 de contraste. No modo
+   claro do lucasmitchel.dev ela desaparece.
+
+Alvo: SVG monocromático usando `currentColor`, para herdar a cor do contexto. Exige exportação
+em SVG do Canva ou redesenho. Bloqueia o modo claro, não bloqueia o resto do sistema.
+
+Nota: os dois usos atuais (`TheNavbar`, `TheFooter`) importam `Logo.png`, a versão **com** fundo,
+mesmo existindo `Logo-nb.png` sem fundo.
 
 ## 4. Estrutura do repositório
 
@@ -203,7 +241,10 @@ Backlog levantado na auditoria. Alguns são bugs, não questões de estilo.
 preset do Tailwind 4, a página de documentação viva e os dois temas.
 
 **Fora, por enquanto:** biblioteca de componentes versionada, Style Dictionary, preset de
-PrimeVue, publicação em registry npm, modo claro.
+PrimeVue, publicação em registry npm, cores de feedback (D9).
+
+**Modo claro:** dentro do escopo da camada semântica desde já (ela nasce neutra), mas o bloco
+de valores claros só é escrito no tema do lucasmitchel.dev, no passo 2.
 
 ## 7. Ordem de trabalho
 
