@@ -7,20 +7,28 @@ diagonal). A geometria foi **regularizada**, não copiada pixel a pixel: os dois
 chevrons tinham ~4px de desvio entre si e as arestas não fechavam — imagem
 gerada por IA nunca sai simétrica.
 
-| Arquivo | Uso | Lê bem até |
+| Arquivo | Uso | Faixa |
 |---|---|---|
-| `lucas-mitchel-dev-mark.svg` | marca completa, `currentColor` | ~40px |
-| `lucas-mitchel-dev-mark-compact.svg` | favicon, ícone de app, navbar densa | **16px** |
+| `lucas-mitchel-dev-mark.svg` | marca completa, `currentColor` | acima de 40px |
+| `lucas-mitchel-dev-mark-lockup.svg` | **assinatura: navbar, rodapé** | 24 – 40px |
+| `lucas-mitchel-dev-mark-compact.svg` | favicon, ícone de app | abaixo de 24px |
 | `lucas-mitchel-dev-mark-gradient.svg` | hero, capa, imagem de OG | grande |
 
-### Por que existe uma compacta
+### Peso óptico
 
 A marca completa tem seis formas: dois chevrons, L, M, a barra e a cauda.
-Abaixo de ~40px os chevrons (que são finos) somem e o resto vira borrão.
-A compacta descarta chevrons e cauda e mantém L + M + barra — o que sobrevive.
+Reduzida, ela não some por igual — **os chevrons somem primeiro**, porque são
+os traços mais finos.
 
-Isso é **logo responsiva**, prática normal: a marca completa acima de 40px,
-a compacta abaixo. Não são duas marcas, são dois recortes da mesma.
+Por isso as três variantes não são recortes arbitrários, são pesos ópticos:
+
+- **completa** — tudo, no traço do desenho original.
+- **assinatura** — chevrons ~45% mais grossos (senão desaparecem nessa faixa)
+  e sem a cauda, que desequilibra a marca ao lado do nome.
+- **compacta** — sem chevrons. Abaixo de 24px nem engrossados eles sobrevivem;
+  resta L + M + barra, que é o que ainda lê a 16px.
+
+Fonte tem peso óptico e ninguém estranha. Logo tem pelo mesmo motivo.
 
 ## Mitchel Sistemas
 
