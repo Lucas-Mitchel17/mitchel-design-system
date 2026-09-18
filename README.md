@@ -22,8 +22,12 @@ o nome, o nome está na camada errada.
 ## Usando
 
 ```css
-@import "mitchel-design-system/index.css";
+@import "mitchel-design-system/index.css";                         /* comum */
+@import "mitchel-design-system/tokens/themes/lucas-mitchel-dev.css"; /* seu tema */
 ```
+
+`index.css` traz só o que é comum. Cada projeto importa **apenas o tema que
+usa** — senão o bundle carrega as rampas de marcas que aquele site não tem.
 
 ```html
 <html data-theme="mitchel-sistemas" data-mode="dark">

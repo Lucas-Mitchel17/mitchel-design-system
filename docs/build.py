@@ -371,6 +371,8 @@ JS = """
 TITLE = "Mitchel Design System"
 
 def inline_css():
+    # a doc compara as duas marcas, entao e um dos poucos lugares que
+    # legitimamente carrega os dois temas
     order = ["tokens/primitives.css", "tokens/themes/mitchel-sistemas.css",
              "tokens/themes/lucas-mitchel-dev.css", "tokens/semantic.css"]
     return "\n".join((ROOT / f).read_text(encoding="utf-8") for f in order)
@@ -385,6 +387,8 @@ f"""<!doctype html>
 <title>{TITLE}</title>
 {FONTS}
 <link rel="stylesheet" href="../index.css">
+<link rel="stylesheet" href="../tokens/themes/mitchel-sistemas.css">
+<link rel="stylesheet" href="../tokens/themes/lucas-mitchel-dev.css">
 <style>html,body{{margin:0;height:100%}}{PAGE_CSS}</style>
 </head>
 <body>

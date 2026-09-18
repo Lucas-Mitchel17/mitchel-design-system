@@ -1,13 +1,19 @@
-/* Mitchel Design System — ponto de entrada único.
-   A ordem importa: primitivos → temas → semântico → base.
+/* Mitchel Design System — ponto de entrada.
 
-   Import em forma de STRING, não url(). Bundler embute a forma com string;
-   a forma com url() ele costuma deixar como import de runtime, e aí os
-   tokens simplesmente não entram no CSS final. Descoberto ao plugar o
-   sistema no primeiro projeto de verdade. */
+   Traz o que é COMUM a todo projeto: primitivos, o contrato semântico e a
+   base. NÃO traz tema nenhum — cada projeto importa só o seu:
+
+     @import "mitchel-design-system/index.css";
+     @import "mitchel-design-system/tokens/themes/lucas-mitchel-dev.css";
+
+   Antes este arquivo importava os dois temas, e o site pessoal saía
+   carregando as rampas da empresa no bundle. Peso morto hoje, e problema
+   de verdade no dia que existir um tema por cliente.
+
+   Import em forma de STRING, não url(): bundler embute a primeira e
+   costuma deixar a segunda como import de runtime, e aí os tokens não
+   entram no CSS final. */
 @import "./tokens/primitives.css";
-@import "./tokens/themes/mitchel-sistemas.css";
-@import "./tokens/themes/lucas-mitchel-dev.css";
 @import "./tokens/semantic.css";
 @import "./base/reset.css";
 @import "./base/a11y.css";
