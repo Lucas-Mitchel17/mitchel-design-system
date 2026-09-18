@@ -54,11 +54,14 @@
   --border-disabled: var(--ramp-neutral-700);
 
   /* Marca — papel próprio, separado dos ícones de interface.
-     A logo é monocromática por decisão: a forma carrega a identidade,
-     a cor carrega a interação. Isso faz a marca funcionar sobre
-     qualquer fundo, impressa e em peça de terceiro, e permite trocar
-     o acento sem redesenhar nada. */
-  --brand-mark:   var(--ramp-neutral-50);
+     A logo é um gradiente gelo → azul. As paradas mudam por MODO,
+     porque o gelo tem 1.31:1 sobre fundo claro: o mesmo gradiente
+     nos dois modos deixaria a marca invisível no claro.
+     --brand-mark é o chapado, para onde gradiente não existe:
+     impressão de uma cor, favicon de 16px, bordado, fax do cliente. */
+  --brand-mark-from: var(--ramp-accent-500);
+  --brand-mark-to:   var(--ramp-brand-500);
+  --brand-mark:      var(--ramp-brand-400);
 
   /* Ícone e separador */
   --icon-default: var(--ramp-brand-500);
@@ -111,7 +114,11 @@
   --border-strong:   var(--ramp-brand-600);
   --border-disabled: var(--ramp-neutral-200);
 
-  --brand-mark:   var(--ramp-neutral-900);
+  /* No claro o gradiente anda para dentro da rampa: as duas pontas
+     precisam passar 3:1 sobre superfície clara. */
+  --brand-mark-from: var(--ramp-brand-500);
+  --brand-mark-to:   var(--ramp-brand-700);
+  --brand-mark:      var(--ramp-brand-700);
 
   --icon-default: var(--ramp-brand-600);
   --icon-muted:   var(--ramp-neutral-500);

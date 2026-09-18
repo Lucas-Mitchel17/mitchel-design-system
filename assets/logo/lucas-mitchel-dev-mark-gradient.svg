@@ -1,10 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 224" role="img" aria-label="Lucas Mitchel Dev">
   <title>Lucas Mitchel Dev</title>
-  <!-- Versão de gradiente para uso grande: hero, capa, imagem de OG. -->
+  <!-- A marca com o gradiente gelo → azul, que é o tratamento primário.
+       As paradas leem --brand-mark-from / --brand-mark-to quando o SVG está
+       inline no HTML, então acompanham a troca de modo claro/escuro sozinhas.
+       Os hex são o fallback para quando o arquivo é carregado como <img>,
+       onde não existe herança de custom property. -->
   <defs>
     <linearGradient id="lm-grad" x1="236" y1="7" x2="60" y2="210" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="var(--ramp-accent-500, #7de3ff)"/>
-      <stop offset="1" stop-color="var(--ramp-brand-500, #3f6bff)"/>
+      <stop offset="0" stop-color="var(--brand-mark-from, #7de3ff)"/>
+      <stop offset="1" stop-color="var(--brand-mark-to, #3f6bff)"/>
     </linearGradient>
   </defs>
   <defs>

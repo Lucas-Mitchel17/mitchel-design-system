@@ -35,34 +35,36 @@ Fonte tem peso óptico e ninguém estranha. Logo tem pelo mesmo motivo.
 `mitchel-sistemas-mark.svg` — círculo com linhas de sinal, reconstruído em
 vetor a partir do PNG do Canva.
 
-## A marca é monocromática
+## A cor da marca
 
-Decisão de 18/09/2026. A logo usa **`--brand-mark`** — branco-gelo no escuro,
-quase-preto no claro — e **nunca** o azul da marca.
+Decisão de 18/09/2026: a marca é o **gradiente gelo → azul elétrico**.
 
-Três motivos:
+```
+--brand-mark-from   ponta clara   (topo direito)
+--brand-mark-to     ponta escura  (base esquerda)
+--brand-mark        chapado de fallback
+```
 
-1. A forma já é carregada: seis peças, duas diagonais fortes e um recorte.
-   Forma barulhenta com cor barulhenta competem entre si.
-2. Monocromática funciona em qualquer contexto — site escuro, site claro,
-   impressa, recortada sobre foto, no deck de um cliente. Das doze cores
-   testadas, só duas passavam em fundo claro e escuro ao mesmo tempo.
-3. Cor de marca envelhece. Forma, não.
+### As paradas mudam por modo, e isso não é capricho
 
-O azul elétrico continua existindo — mas como **acento de interface**:
-botão, link, anel de foco, destaque de texto. Por isso `--brand-mark` é um
-token separado de `--icon-default`: são papéis diferentes, não a mesma cor
-com dois nomes.
+O gelo `#7de3ff` tem **1.31:1** sobre superfície clara — invisível. Usar o
+mesmo gradiente nos dois modos apagaria a marca no modo claro. Então:
 
-Consequência prática: dá para trocar o acento do site inteiro sem encostar
-na logo.
+| Modo | de | para | menor contraste |
+|---|---|---|---|
+| escuro | `#7de3ff` | `#3f6bff` | 4.36:1 |
+| claro | `#3f6bff` | `#1d3ca8` | 3.95:1 |
 
-### Assinatura: duas versões
+As duas pontas passam 3:1 sobre a superfície nos dois modos — o mínimo da
+WCAG para elemento gráfico. A página de docs confere isso a cada build.
 
-- **Primária, toda monocromática.** É a oficial. Usa em qualquer lugar,
-  principalmente onde você não controla o fundo.
-- **Web, com o `.dev` no acento.** Só no seu próprio site, onde a paleta
-  está garantida. É variação permitida, não a marca.
+### O chapado não é opcional
+
+Gradiente não existe em todo lugar: impressão de uma cor, bordado, carimbo,
+favicon de 16px onde o degradê vira ruído, e qualquer sistema de terceiro que
+aceite só uma cor. Para esses casos existe `--brand-mark` chapado, e é por
+isso que os arquivos de geometria continuam em `currentColor`: eles SÃO a
+versão chapada. O gradiente é aplicado por cima, não embutido.
 
 ## currentColor
 
