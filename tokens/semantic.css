@@ -53,6 +53,13 @@
   --border-strong:   var(--ramp-brand-500);
   --border-disabled: var(--ramp-neutral-700);
 
+  /* Marca — papel próprio, separado dos ícones de interface.
+     A logo é monocromática por decisão: a forma carrega a identidade,
+     a cor carrega a interação. Isso faz a marca funcionar sobre
+     qualquer fundo, impressa e em peça de terceiro, e permite trocar
+     o acento sem redesenhar nada. */
+  --brand-mark:   var(--ramp-neutral-50);
+
   /* Ícone e separador */
   --icon-default: var(--ramp-brand-500);
   --icon-muted:   var(--ramp-neutral-400);
@@ -103,6 +110,8 @@
   --border-default:  var(--ramp-neutral-300);
   --border-strong:   var(--ramp-brand-600);
   --border-disabled: var(--ramp-neutral-200);
+
+  --brand-mark:   var(--ramp-neutral-900);
 
   --icon-default: var(--ramp-brand-600);
   --icon-muted:   var(--ramp-neutral-500);

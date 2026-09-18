@@ -35,6 +35,35 @@ Fonte tem peso óptico e ninguém estranha. Logo tem pelo mesmo motivo.
 `mitchel-sistemas-mark.svg` — círculo com linhas de sinal, reconstruído em
 vetor a partir do PNG do Canva.
 
+## A marca é monocromática
+
+Decisão de 18/09/2026. A logo usa **`--brand-mark`** — branco-gelo no escuro,
+quase-preto no claro — e **nunca** o azul da marca.
+
+Três motivos:
+
+1. A forma já é carregada: seis peças, duas diagonais fortes e um recorte.
+   Forma barulhenta com cor barulhenta competem entre si.
+2. Monocromática funciona em qualquer contexto — site escuro, site claro,
+   impressa, recortada sobre foto, no deck de um cliente. Das doze cores
+   testadas, só duas passavam em fundo claro e escuro ao mesmo tempo.
+3. Cor de marca envelhece. Forma, não.
+
+O azul elétrico continua existindo — mas como **acento de interface**:
+botão, link, anel de foco, destaque de texto. Por isso `--brand-mark` é um
+token separado de `--icon-default`: são papéis diferentes, não a mesma cor
+com dois nomes.
+
+Consequência prática: dá para trocar o acento do site inteiro sem encostar
+na logo.
+
+### Assinatura: duas versões
+
+- **Primária, toda monocromática.** É a oficial. Usa em qualquer lugar,
+  principalmente onde você não controla o fundo.
+- **Web, com o `.dev` no acento.** Só no seu próprio site, onde a paleta
+  está garantida. É variação permitida, não a marca.
+
 ## currentColor
 
 Nenhuma tem cor embutida: todas herdam `currentColor`. Defina `color` no pai —

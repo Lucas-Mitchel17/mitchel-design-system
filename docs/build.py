@@ -107,9 +107,10 @@ PAIRS = [
  ("--text-primary","--surface-3","texto sobre card elevado",4.5),
  ("--text-on-action-primary","--action-primary","texto no botão primário",4.5),
  ("--action-secondary-text","--surface-1","texto do botão secundário",4.5),
+ ("--brand-mark","--surface-1","a marca sobre a base",3.0),
  ("--text-disabled","--surface-disabled","desabilitado · isento na WCAG",3.0),
 ]
-ROLES = ["--surface-1","--surface-2","--surface-3","--text-primary","--text-secondary","--text-muted",
+ROLES = ["--surface-1","--surface-2","--surface-3","--brand-mark","--text-primary","--text-secondary","--text-muted",
  "--text-highlight","--action-primary","--action-primary-hover","--text-on-action-primary",
  "--border-subtle","--border-default","--border-strong","--icon-default","--divider",
  "--focus-ring","--glow-action","--scrim","--surface-disabled","--text-disabled"]
