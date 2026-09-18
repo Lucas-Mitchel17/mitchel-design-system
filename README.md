@@ -73,6 +73,20 @@ A página calcula o **contraste de cada par ao vivo**, nos dois temas e nos dois
 Foi ela que pegou o primeiro bug do sistema: `--text-disabled` sobre `--surface-disabled`
 saiu em 2.45:1 — a mesma classe de erro que existia no site antigo.
 
+## Largura máxima
+
+O par `--container-max` + `--container-gutter` resolve a tela ultrawide sem
+`<div>` extra de wrapper:
+
+```css
+padding-inline: max(var(--container-gutter), calc((100% - var(--container-max)) / 2));
+```
+
+A seção continua ocupando a largura toda — o fundo vai de ponta a ponta — e é
+o **padding** que cresce, empurrando o conteúdo para o centro até o limite.
+Com um wrapper interno você teria que repetir a `div` em toda seção e o fundo
+pararia junto com o conteúdo.
+
 ## Camadas
 
 `reset.css` e `a11y.css` vivem dentro de `@layer base`. Isso não é detalhe de
