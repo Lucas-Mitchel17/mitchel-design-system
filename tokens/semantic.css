@@ -147,11 +147,11 @@
 
   /* Ritmo de layout — é aqui que mora a densidade da marca.
      Trocar estes três muda o site inteiro.                  */
-  /* 72rem = 1152px, que é exatamente a largura de conteúdo do desenho
-     (prancha de 1280 menos 64 de margem de cada lado). Em tela ultrawide
-     o conteúdo para aqui e a margem cresce; o FUNDO da seção continua
-     indo de ponta a ponta. */
-  --container-max:         72rem;
+  /* 84rem = 1344px. Não existe padrão de mercado para isso — os comuns são
+     1152, 1280 (Tailwind), 1320 (Bootstrap) e 1440. O número importa menos
+     que a regra ao lado: o container cresce, o TEXTO não. Parágrafo continua
+     limitado por --measure, senão a linha fica larga demais para ler. */
+  --container-max:         84rem;
   /* 24px no celular, 64px no desktop — o mesmo respiro do desenho. */
   --container-gutter:      clamp(var(--space-6), 4vw, var(--space-16));
   --section-padding-block: clamp(var(--space-16), 10vw, var(--space-24));
