@@ -76,6 +76,15 @@ code,.mono{font-family:var(--font-mono);font-size:0.92em}
   border-radius:var(--radius-sm);background:var(--surface-2)}
 .chain b{color:var(--text-muted);font-weight:var(--weight-regular)}
 .logo-row{display:flex;gap:var(--space-10);flex-wrap:wrap;align-items:flex-end;color:var(--icon-default)}
+.logo-item{display:flex;flex-direction:column;gap:var(--space-3);align-items:flex-start;color:var(--icon-default)}
+.log{display:flex;flex-direction:column;gap:var(--space-6)}
+.log h3{font-size:var(--text-lead);font-family:var(--font-body);font-weight:var(--weight-medium)}
+.log ul{margin:0;padding-left:var(--space-5);display:flex;flex-direction:column;gap:var(--space-2)}
+.log li{color:var(--text-secondary);max-width:var(--measure)}
+.log li b{color:var(--text-primary);font-weight:var(--weight-medium)}
+.stamp{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-1) var(--space-3);
+  border:1px solid var(--border-strong);border-radius:var(--radius-full);color:var(--text-highlight);
+  font-family:var(--font-mono);font-size:var(--text-caption)}
 .spec{display:flex;align-items:baseline;gap:var(--space-5);flex-wrap:wrap}
 .spec .n{font-family:var(--font-mono);font-size:var(--text-caption);color:var(--text-muted);
   width:120px;flex-shrink:0}
@@ -84,14 +93,18 @@ code,.mono{font-family:var(--font-mono);font-size:0.92em}
 @media (max-width:560px){.spec .n{width:100%}}
 """
 
-MS_LOGO = ('<svg viewBox="0 0 48 48" width="52" height="52" aria-label="Mitchel Sistemas" role="img">'
- '<g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">'
- '<path d="M36.02 11.98A17 17 0 1 0 36.02 36.02"/><path d="M22 16h15"/><path d="M17 24h26"/>'
- '<path d="M22 32h15"/></g><g fill="currentColor"><circle cx="37" cy="16" r="2.4"/>'
- '<circle cx="43" cy="24" r="2.8"/><circle cx="37" cy="32" r="2.4"/></g></svg>')
-LM_LOGO = ('<svg viewBox="0 0 48 48" width="52" height="52" aria-label="Lucas Mitchel Dev" role="img" '
- 'fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">'
- '<path d="M10 14v24h7"/><path d="M22 38V14l8 10 8-10v24"/></svg>')
+# As logos vem dos ARQUIVOS de assets/logo/, nao de copias aqui dentro.
+# Antes a do Lucas era um rascunho de L+M desenhado a mao neste script, e
+# ficou para tras quando a marca `< LM >` foi vetorizada de verdade: a doc
+# mostrava uma logo que nao existia mais. Lendo do arquivo, nao repete.
+def logo(nome, altura):
+    svg = (ROOT / "assets" / "logo" / f"{nome}.svg").read_text(encoding="utf-8")
+    # fora o comentario XML e o <title>: o rotulo ja esta no aria-label, e
+    # inline o <title> vira tooltip em cima do que a pagina diz do lado.
+    svg = re.sub(r"<!--.*?-->", "", svg, flags=re.S)
+    svg = re.sub(r"<title>.*?</title>", "", svg, flags=re.S)
+    svg = re.sub(r'\s(width|height)="[^"]*"', "", svg, count=2)
+    return svg.replace("<svg", f'<svg style="height:{altura}px;width:auto"', 1)
 
 # (frente, fundo, papel, mínimo aplicável)
 # 4.5 = texto corrido (WCAG 1.4.3 AA). 3.0 = texto grande.
@@ -172,6 +185,79 @@ BODY = f"""
       </div></div>
   </div>
 </header>
+
+<section>
+  <div class="eyebrow">Estado</div>
+  <h2>O que mudou até aqui</h2>
+  <p>Esta página é gerada a partir dos arquivos do repositório, então o que está acima
+  é sempre o estado real do sistema. O que segue é o caminho até ele.</p>
+  <div class="log">
+
+    <div>
+      <h3><span class="stamp">v0.2.0</span> &nbsp;O sistema</h3>
+      <ul>
+        <li><b>Reset e a11y foram para dentro de <code>@layer base</code>.</b> Fora de camada
+        eles venciam qualquer utilitário: <code>button {{ background: none }}</code> atropelava
+        <code>.bg-action</code> e todo botão saía transparente. Apareceu ao plugar o sistema
+        no lucasmitchel.dev.</li>
+        <li><b>O <code>index.css</code> parou de importar os dois temas.</b> O site pessoal
+        carregava as rampas da empresa no bundle. Peso morto hoje, problema de verdade no dia
+        que existir um tema por cliente. Cada projeto importa só o seu.</li>
+        <li><b><code>@import</code> em forma de string, nunca <code>url()</code>.</b> O bundler
+        embute a primeira e deixa a segunda como import de runtime — e aí os tokens não entram
+        no CSS final.</li>
+        <li><b>Container de 72rem para 84rem</b> (1344px), gutter de 20–40px para 24–64px.
+        O container cresceu; o texto não — parágrafo continua preso em <code>--measure</code>.</li>
+        <li><b><code>package.json</code> para consumo via npm</b>, direto do GitHub.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>A marca</h3>
+      <ul>
+        <li><b>A marca <code>&lt; LM &gt;</code> foi vetorizada</b> a partir do estudo gerado
+        online. A geometria foi regularizada, não copiada: os dois chevrons tinham ~4px de
+        desvio entre si e as arestas não fechavam.</li>
+        <li><b>Os chevrons subiram 32 unidades.</b> Estavam centrados em y=120, herdado da
+        imagem original; L e M têm centro em ~80. Agora flanqueiam as letras em vez de ficarem
+        caídos.</li>
+        <li><b>O M recorta a chave da direita por máscara</b>, não por contorno colorido —
+        assim funciona em qualquer cor e sobre qualquer fundo. Antes a barra diagonal cruzava
+        a chave e as duas viravam um bloco só.</li>
+        <li><b>A marca voltou a ter cor:</b> gradiente gelo → azul, com paradas diferentes por
+        modo. Passou por uma versão monocromática antes — o gelo tem 1.31:1 sobre fundo claro,
+        então o mesmo gradiente nos dois modos apagaria a marca no claro.</li>
+        <li><b>Esta página mostrava um rascunho.</b> A logo do Lucas aqui era um L+M desenhado
+        à mão dentro do gerador da doc, e ficou para trás quando a marca real foi vetorizada.
+        Agora a página lê os arquivos de <code>assets/logo/</code> — não tem como repetir.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Quem já consome</h3>
+      <ul>
+        <li><b>lucasmitchel.dev</b> — Astro 5 + Tailwind 4, 4 páginas em 2 idiomas.
+        Foi plugando o sistema nele que os quatro bugs de CSS acima apareceram.</li>
+        <li><b>mitchelsistemas.com.br</b> — migrado de Astro 2 + Tailwind 3 para Astro 5 +
+        Tailwind 4 consumindo o sistema. As cores da empresa não mudaram de valor: mudaram de
+        casa, de <code>tailwind.config</code> para os tokens.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Em aberto</h3>
+      <ul>
+        <li>A <b>Play</b> do site da empresa precisa de substituta — três opções em
+        <code>docs/fontes.md</code>, recomendação é Chakra Petch.</li>
+        <li>O nome da assinatura <b>não está vetorizado em curvas</b>. Não bloqueia web;
+        bloqueia impressão e fundo de terceiro.</li>
+        <li>O <code>package.json</code> ainda declara <code>0.1.0</code> enquanto a tag já é
+        <code>v0.2.0</code>.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
 <section>
   <div class="eyebrow">As três camadas</div>
@@ -258,15 +344,49 @@ BODY = f"""
 
 <section>
   <div class="eyebrow">Marca</div>
-  <h2>As duas logos</h2>
-  <p>Monoline sobre grade de 48, traço 3, pontas arredondadas. O parentesco está na construção.
-  As duas herdam <code>currentColor</code>, então acompanham o tema.</p>
+  <h2>As logos</h2>
+  <p>Nenhuma tem cor embutida: todas herdam <code>currentColor</code>, e é isso que faz a
+  logo acompanhar a troca de tema — o PNG antigo não conseguia. A versão de gradiente lê
+  <code>--brand-mark-from</code> e <code>--brand-mark-to</code> quando está inline, então
+  troca de modo sozinha.</p>
+  <p style="color:var(--text-muted)"><strong>Só aqui</strong> cada marca está presa ao próprio
+  tema — o seletor lá em cima não as pinta. Seria enganoso: a marca do Lucas sairia verde
+  enquanto a empresa estivesse selecionada. O modo claro/escuro continua valendo.</p>
   <div class="logo-row">
-    <div style="display:flex;flex-direction:column;gap:var(--space-3)">{MS_LOGO}
+    <div class="logo-item" data-theme-pin="mitchel-sistemas" data-theme="mitchel-sistemas" data-mode="dark">{logo("mitchel-sistemas-mark", 64)}
       <span class="eyebrow">mitchel sistemas</span></div>
-    <div style="display:flex;flex-direction:column;gap:var(--space-3)">{LM_LOGO}
-      <span class="eyebrow">lucas mitchel dev</span></div>
+    <div class="logo-item" data-theme-pin="lucas-mitchel-dev" data-theme="lucas-mitchel-dev" data-mode="dark">{logo("lucas-mitchel-dev-mark-gradient", 64)}
+      <span class="eyebrow">lucas mitchel dev · gradiente</span></div>
   </div>
+</section>
+
+<section>
+  <div class="eyebrow">Marca</div>
+  <h2>Peso óptico, não recorte</h2>
+  <p>A marca completa tem seis formas: dois chevrons, L, M, a barra e a cauda. Reduzida,
+  ela não some por igual — <strong>os chevrons somem primeiro</strong>, porque são os
+  traços mais finos. Por isso as variantes não são recortes arbitrários. Fonte tem peso
+  óptico e ninguém estranha; logo tem pelo mesmo motivo.</p>
+  <div class="logo-row">
+    <div class="logo-item" data-theme-pin="lucas-mitchel-dev" data-theme="lucas-mitchel-dev" data-mode="dark">{logo("lucas-mitchel-dev-mark", 72)}
+      <span class="eyebrow">completa · acima de 40px</span></div>
+    <div class="logo-item" data-theme-pin="lucas-mitchel-dev" data-theme="lucas-mitchel-dev" data-mode="dark">{logo("lucas-mitchel-dev-mark-lockup", 40)}
+      <span class="eyebrow">assinatura · 24–40px</span></div>
+    <div class="logo-item" data-theme-pin="lucas-mitchel-dev" data-theme="lucas-mitchel-dev" data-mode="dark">{logo("lucas-mitchel-dev-mark-compact", 24)}
+      <span class="eyebrow">compacta · abaixo de 24px</span></div>
+  </div>
+  <div class="scroller"><table><thead><tr><th>Variante</th><th>O que muda</th><th>Por quê</th></tr></thead>
+  <tbody>
+  <tr><td class="mono">completa</td><td>tudo, no traço do desenho</td>
+    <td style="color:var(--text-muted)">a marca como foi desenhada</td></tr>
+  <tr><td class="mono">assinatura</td><td>chevrons ~45% mais grossos, sem a cauda</td>
+    <td style="color:var(--text-muted)">os chevrons desapareceriam nessa faixa; a cauda desequilibra ao lado do nome</td></tr>
+  <tr><td class="mono">compacta</td><td>sem chevrons: L + M + barra</td>
+    <td style="color:var(--text-muted)">abaixo de 24px nem engrossados sobrevivem — isto é o que ainda lê a 16px</td></tr>
+  </tbody></table></div>
+  <p>O nome <strong>não</strong> está dentro do SVG, de propósito: texto em SVG depende da
+  fonte carregada, não é selecionável e não é lido direito por leitor de tela. A assinatura
+  se monta em HTML — marca ao lado do nome em <code>--font-display</code>.</p>
 </section>
 
 </div></div>
@@ -320,6 +440,14 @@ JS = """
       el.textContent = r.toFixed(2) + ':1';
       el.className = 'ratio ' + (r >= min ? 'pass' : 'fail');
     });
+    // Os blocos de logo tem tema proprio. So o MODO acompanha a pagina —
+    // e como os dois atributos ficam no MESMO elemento, [data-mode="light"]
+    // vence [data-theme] por vir depois no semantic.css.
+    var mode = app.getAttribute('data-mode');
+    document.querySelectorAll('[data-theme-pin]').forEach(function (el) {
+      el.setAttribute('data-mode', el.getAttribute('data-theme-pin') === 'mitchel-sistemas' ? 'dark' : mode);
+    });
+
     var bg = resolve('--surface-1');
     if (bg) { document.body.style.background = bg; }
     var c1 = document.getElementById('chain-1');
