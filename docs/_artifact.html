@@ -227,10 +227,12 @@
      -400 stays on text-disabled and icon-muted, where it is still right. */
   --text-muted:              var(--ramp-neutral-350);
   --text-disabled:           var(--ramp-neutral-400);
-  /* brand-400, não -500: o mesmo degrau que serve de PREENCHIMENTO
-     de botão não serve de TEXTO sobre fundo escuro. Com -500 o azul
-     elétrico do tema pessoal dava 4.36:1 — reprovado por pouco. */
-  --text-highlight:          var(--ramp-brand-400);
+  /* The accent, not brand-500: the step that FILLS a button does not work
+     as TEXT on a dark ground — the personal theme's electric blue gave
+     4.04–4.36:1. The accent is also where the logo gradient ends, so
+     emphasised text echoes the mark while fills and borders keep the brand
+     colour. Lowest ratio: 12.16:1 (personal), 12.88:1 (company). */
+  --text-highlight:          var(--ramp-accent-500);
   --text-on-action-primary:  var(--ramp-neutral-950);
 
   /* Ação */
@@ -293,7 +295,10 @@
   --text-secondary:          var(--ramp-neutral-600);
   --text-muted:              var(--ramp-neutral-500);
   --text-disabled:           var(--ramp-neutral-400);
-  --text-highlight:          var(--ramp-brand-800);
+  /* The accent vanishes on a light ground (1.31:1), so here it is
+     brand-600: the closest step to the brand that still clears every
+     light surface — 5.16:1 at the lowest. */
+  --text-highlight:          var(--ramp-brand-600);
   --text-on-action-primary:  var(--ramp-neutral-950);
 
   --action-primary:          var(--ramp-brand-500);
