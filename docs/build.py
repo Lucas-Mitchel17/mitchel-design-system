@@ -118,6 +118,14 @@ PAIRS = [
  ("--text-highlight","--surface-1","ênfase",4.5),
  ("--text-primary","--surface-2","texto sobre seção recuada",4.5),
  ("--text-primary","--surface-3","texto sobre card elevado",4.5),
+ # Every text role against the other two surfaces too. Checking surface-1
+ # only is how text-muted shipped at 4.19:1 on cards and nobody saw it.
+ ("--text-secondary","--surface-2","apoio · seção recuada",4.5),
+ ("--text-secondary","--surface-3","apoio · card elevado",4.5),
+ ("--text-muted","--surface-2","discreto · seção recuada",4.5),
+ ("--text-muted","--surface-3","discreto · card elevado",4.5),
+ ("--text-highlight","--surface-2","ênfase · seção recuada",4.5),
+ ("--text-highlight","--surface-3","ênfase · card elevado",4.5),
  ("--text-on-action-primary","--action-primary","texto no botão primário",4.5),
  ("--action-secondary-text","--surface-1","texto do botão secundário",4.5),
  ("--brand-mark-from","--surface-1","marca · ponta clara do gradiente",3.0),
