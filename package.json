@@ -1,6 +1,6 @@
 {
   "name": "mitchel-design-system",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Design system da Mitchel Sistemas e do Lucas Mitchel Dev. Tokens em CSS custom properties, multi-marca e multi-tema.",
   "repository": {
     "type": "git",
