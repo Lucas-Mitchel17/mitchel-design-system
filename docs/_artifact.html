@@ -189,6 +189,26 @@
   --stack-gap: var(--space-5);
 }
 
+/* Dark mode only: the ice is the interaction colour too, not just emphasis
+   text. With text-highlight on the ice, blue buttons and hover borders were
+   the one blue left on the page and read as a stray colour. Blue stays in
+   the logo gradient, where it ends the mark, and in light mode, where the
+   ice has 1.31:1 and cannot carry anything.
+   This is the one place a theme overrides semantic roles instead of only
+   supplying ramps; scoped to this theme so the company's green is
+   untouched. Button text on the ice: 13.71:1. */
+[data-theme="lucas-mitchel-dev"][data-mode="dark"] {
+  --action-primary:          var(--ramp-accent-500);
+  --action-primary-hover:    color-mix(in srgb, var(--ramp-accent-500) 80%, white);
+  --action-primary-active:   color-mix(in srgb, var(--ramp-accent-500) 85%, black);
+  --action-secondary-text:   var(--ramp-accent-500);
+  --action-secondary-border: var(--ramp-accent-500);
+  --border-strong:           var(--ramp-accent-500);
+  --icon-default:            var(--ramp-accent-500);
+  --focus-ring:              var(--ramp-accent-500);
+  --glow-action:             color-mix(in srgb, var(--ramp-accent-500) 60%, transparent);
+}
+
 /* ============================================================
    SEMÂNTICO — o contrato do sistema.
 
