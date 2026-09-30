@@ -138,7 +138,7 @@ ROLES = ["--surface-1","--surface-2","--surface-3","--brand-mark-from","--brand-
  "--border-subtle","--border-default","--border-strong","--icon-default","--divider",
  "--focus-ring","--glow-action","--scrim","--surface-disabled","--text-disabled"]
 RAMPS = ["neutral-950","neutral-900","neutral-800","neutral-700","neutral-600","neutral-500",
- "neutral-400","neutral-300","neutral-200","neutral-100","neutral-50","neutral-0"]
+ "neutral-400","neutral-350","neutral-300","neutral-200","neutral-100","neutral-50","neutral-0"]
 BRANDS = ["brand-300","brand-400","brand-500","brand-600","brand-700","brand-800","accent-500"]
 SCALE = [("--text-h1 · degrau 6",61),("--text-h2 · degrau 5",49),("--text-h3 · degrau 4",39),
          ("--text-h4 · degrau 3",31),("--text-lead · degrau 2",25),("--text-body · degrau 1",20)]

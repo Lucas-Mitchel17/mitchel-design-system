@@ -100,6 +100,7 @@
   --ramp-neutral-100: #e3e7ef;
   --ramp-neutral-200: #c4cbdb;
   --ramp-neutral-300: #9aa4bd;
+  --ramp-neutral-350: #808ca9;
   --ramp-neutral-400: #6f7c9b;
   --ramp-neutral-500: #4a5878;
   --ramp-neutral-600: #2b3757;
@@ -159,6 +160,7 @@
   --ramp-neutral-100: #e2e7f8;
   --ramp-neutral-200: #cdd5ee;
   --ramp-neutral-300: #a8b4d8;
+  --ramp-neutral-350: #7f8cb0;
   --ramp-neutral-400: #6d7a9e;
   --ramp-neutral-500: #46578c;
   --ramp-neutral-600: #2b3760;
@@ -194,7 +196,7 @@
    mora aqui: tudo aponta para uma rampa que o TEMA fornece.
 
    Um tema novo (cliente, marca nova) precisa entregar só isto:
-     --ramp-neutral-0 … --ramp-neutral-950
+     --ramp-neutral-0 … --ramp-neutral-950 (including -350)
      --ramp-brand-300 … --ramp-brand-800
      --ramp-accent-500
      --font-display / --font-body / --font-mono
@@ -220,7 +222,10 @@
   /* Texto */
   --text-primary:            var(--ramp-neutral-50);
   --text-secondary:          var(--ramp-neutral-300);
-  --text-muted:              var(--ramp-neutral-400);
+  /* neutral-350, not -400: -400 cleared surface-1 by 0.02 and failed on
+     surface-3 (4.19:1), which is where muted text lives — card notes.
+     -400 stays on text-disabled and icon-muted, where it is still right. */
+  --text-muted:              var(--ramp-neutral-350);
   --text-disabled:           var(--ramp-neutral-400);
   /* brand-400, não -500: o mesmo degrau que serve de PREENCHIMENTO
      de botão não serve de TEXTO sobre fundo escuro. Com -500 o azul
@@ -558,7 +563,7 @@ code,.mono{font-family:var(--font-mono);font-size:0.92em}
   <p>A única camada que muda entre as duas marcas. Um cliente novo entrega estas rampas e
   ganha o sistema inteiro.</p>
   <div><div class="eyebrow" style="margin-bottom:var(--space-3)">Neutros</div>
-    <div class="ramp"><div><div class="sw" style="background:var(--ramp-neutral-950)"></div><div class="nm">950</div></div><div><div class="sw" style="background:var(--ramp-neutral-900)"></div><div class="nm">900</div></div><div><div class="sw" style="background:var(--ramp-neutral-800)"></div><div class="nm">800</div></div><div><div class="sw" style="background:var(--ramp-neutral-700)"></div><div class="nm">700</div></div><div><div class="sw" style="background:var(--ramp-neutral-600)"></div><div class="nm">600</div></div><div><div class="sw" style="background:var(--ramp-neutral-500)"></div><div class="nm">500</div></div><div><div class="sw" style="background:var(--ramp-neutral-400)"></div><div class="nm">400</div></div><div><div class="sw" style="background:var(--ramp-neutral-300)"></div><div class="nm">300</div></div><div><div class="sw" style="background:var(--ramp-neutral-200)"></div><div class="nm">200</div></div><div><div class="sw" style="background:var(--ramp-neutral-100)"></div><div class="nm">100</div></div><div><div class="sw" style="background:var(--ramp-neutral-50)"></div><div class="nm">50</div></div><div><div class="sw" style="background:var(--ramp-neutral-0)"></div><div class="nm">0</div></div></div></div>
+    <div class="ramp"><div><div class="sw" style="background:var(--ramp-neutral-950)"></div><div class="nm">950</div></div><div><div class="sw" style="background:var(--ramp-neutral-900)"></div><div class="nm">900</div></div><div><div class="sw" style="background:var(--ramp-neutral-800)"></div><div class="nm">800</div></div><div><div class="sw" style="background:var(--ramp-neutral-700)"></div><div class="nm">700</div></div><div><div class="sw" style="background:var(--ramp-neutral-600)"></div><div class="nm">600</div></div><div><div class="sw" style="background:var(--ramp-neutral-500)"></div><div class="nm">500</div></div><div><div class="sw" style="background:var(--ramp-neutral-400)"></div><div class="nm">400</div></div><div><div class="sw" style="background:var(--ramp-neutral-350)"></div><div class="nm">350</div></div><div><div class="sw" style="background:var(--ramp-neutral-300)"></div><div class="nm">300</div></div><div><div class="sw" style="background:var(--ramp-neutral-200)"></div><div class="nm">200</div></div><div><div class="sw" style="background:var(--ramp-neutral-100)"></div><div class="nm">100</div></div><div><div class="sw" style="background:var(--ramp-neutral-50)"></div><div class="nm">50</div></div><div><div class="sw" style="background:var(--ramp-neutral-0)"></div><div class="nm">0</div></div></div></div>
   <div><div class="eyebrow" style="margin-bottom:var(--space-3)">Marca e acento</div>
     <div class="ramp"><div><div class="sw" style="background:var(--ramp-brand-300)"></div><div class="nm">300</div></div><div><div class="sw" style="background:var(--ramp-brand-400)"></div><div class="nm">400</div></div><div><div class="sw" style="background:var(--ramp-brand-500)"></div><div class="nm">500</div></div><div><div class="sw" style="background:var(--ramp-brand-600)"></div><div class="nm">600</div></div><div><div class="sw" style="background:var(--ramp-brand-700)"></div><div class="nm">700</div></div><div><div class="sw" style="background:var(--ramp-brand-800)"></div><div class="nm">800</div></div><div><div class="sw" style="background:var(--ramp-accent-500)"></div><div class="nm">500</div></div></div></div>
 </section>
